@@ -63,6 +63,8 @@ jobs:
         run: pnpm install
       - name: Check TypeScript Types
         run: npx tsc --noEmit
+      - name: Run Linter (warnings only)
+        run: pnpm lint || true
       - name: Run TypeScript Tests
         run: pnpm test:jest
 

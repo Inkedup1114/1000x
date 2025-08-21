@@ -1,0 +1,51 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+  ],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  env: {
+    node: true,
+    es2020: true,
+    jest: true,
+    mocha: true,
+  },
+  globals: {
+    Buffer: 'readonly',
+    process: 'readonly',
+    global: 'readonly',
+    require: 'readonly',
+    module: 'readonly',
+    exports: 'readonly',
+    console: 'readonly',
+    setTimeout: 'readonly',
+    setInterval: 'readonly',
+    clearInterval: 'readonly',
+    describe: 'readonly',
+    test: 'readonly',
+    it: 'readonly',
+    expect: 'readonly',
+    beforeEach: 'readonly',
+    afterEach: 'readonly',
+    before: 'readonly',
+    after: 'readonly',
+  },
+  rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'no-console': 'off',
+    'no-undef': 'off', // TypeScript handles this better
+  },
+  ignorePatterns: [
+    'node_modules/',
+    'dist/',
+    'target/',
+    '.anchor/',
+    'test-ledger/',
+    '**/*.d.ts',
+  ],
+};

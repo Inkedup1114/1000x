@@ -4,11 +4,6 @@ Checklist and actionable tasks to finish so this repository can be deployed reli
 
 **Last Updated**: August 18, 2025
 
-
-
-
-
-
 ---
 
 ## Pre-Mainnet Risks & Gaps (Must Review / Mitigate)
@@ -436,6 +431,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 ### ✅ Completed Sections
 
 #### Infrastructure & Tooling (100% Complete)
+
 - [x] Environment setup and toolchain verification (Node, pnpm, Rust, Anchor, Solana CLI)
 - [x] Program compilation and build system working
 - [x] Comprehensive NPM scripts for all operations
@@ -443,6 +439,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [x] Ubuntu setup script for automated environment preparation
 
 #### Program Development (98% Complete - 1 deployment pending)
+
 - [x] Hook program logic implemented with wallet cap enforcement
 - [x] Transfer fee integration with burn mechanism
 - [x] PDA account structures and seed derivation
@@ -452,6 +449,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - ⚠️ Program upgrade deployment pending (SOL funding issue)
 
 #### Client Implementation (100% Complete)
+
 - [x] Mint creation script with Token-2022 extensions
 - [x] Hook configuration initialization
 - [x] Extra account metas registration (ready for deployment)
@@ -459,6 +457,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [x] Fee configuration management
 
 #### Operational Infrastructure (100% Complete)
+
 - [x] Burner bot with comprehensive safety features and monitoring
 - [x] Health check system with structured JSON output
 - [x] Monitoring script with alerting framework
@@ -468,6 +467,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [x] Graceful shutdown and resource management
 
 #### Documentation (100% Complete)
+
 - [x] Complete README with deployment guide and architecture
 - [x] Technical specification (TECH_SPEC.md) with PDA layouts and integration examples
 - [x] TypeScript client development guide (app/ts/README.md)
@@ -475,6 +475,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [x] Security features and monitoring procedures documented
 
 #### Security & Monitoring (100% Complete)
+
 - [x] Environment variable management and secret handling
 - [x] Systemd service hardening with privilege restrictions
 - [x] Structured logging with security considerations
@@ -484,11 +485,13 @@ High‑level categories of outstanding or implicit risks identified during codeb
 ### ⚠️ Pending Items
 
 #### Immediate (Blocking Deployment)
+
 - [ ] **Program upgrade deployment** (0.08 SOL funding needed)
 - [ ] **Extra account metas registration** (1 script execution)
 - [ ] **End-to-end transfer testing** (validation of complete flow)
 
 #### Short-term (Pre-mainnet)
+
 - [ ] **Anchor test execution** (resolve IDL generation compatibility issue)
 - [x] **~~Monitor alerting implementation~~** (COMPLETED - comprehensive multi-channel alerting system implemented)
 - [ ] **RUNBOOK.md creation** (incident response procedures)
@@ -497,12 +500,14 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] **Package.json script fixes** (fix burner:test script and add missing devDependencies)
 
 #### Medium-term (Mainnet Preparation)
+
 - [ ] **Third-party security audit** (schedule professional review)
 - [ ] **Governance and upgrade authority planning** (multisig/timelock implementation)
 - [ ] **Tokenomics documentation** (burn rate mathematical model)
 - [ ] **Legal and compliance review** (jurisdictional considerations)
 
 #### Nice-to-have (Future Improvements)
+
 - [ ] **Emergency pause mechanism** (governance-controlled circuit breaker)
 - [ ] **Multi-tier wallet caps** (different limits for different user categories)
 - [ ] **Prometheus metrics exporter** (operational metrics collection)
@@ -594,6 +599,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 ## Testing & Validation Checklist
 
 ### 🧪 Core Functionality Tests
+
 - [x] **Unit tests**: Comprehensive coverage of business logic and edge cases
 - [ ] **Integration tests**: End-to-end testing with actual on-chain state
 - [ ] **Hook enforcement validation**: Transfer scenarios that should pass/fail
@@ -601,6 +607,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] **Burn mechanism testing**: Confirm tokens are properly burned from supply
 
 ### 🔍 Security & Safety Tests
+
 - [ ] **Malformed account handling**: Test with invalid or corrupted account data
 - [ ] **Cap bypass attempts**: Try various methods to circumvent wallet cap
 - [ ] **Authority compromise simulation**: Test behavior with compromised keys
@@ -608,6 +615,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] **Resource exhaustion testing**: Test behavior under extreme loads
 
 ### 🚀 Operational Tests
+
 - [ ] **Service restart resilience**: Test graceful shutdown and restart procedures
 - [ ] **Configuration changes**: Test runtime configuration updates
 - [ ] **Network partition handling**: Test behavior during RPC outages
@@ -615,6 +623,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] **Alert system validation**: Test all monitoring and alerting pathways
 
 ### 📊 Performance Tests
+
 - [ ] **Compute unit benchmarking**: Measure hook execution costs
 - [ ] **Burner bot throughput**: Test with high withheld token volumes
 - [ ] **RPC efficiency**: Optimize API call patterns and batching
@@ -625,6 +634,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 ## Completion Criteria
 
 ### For Devnet Deployment ✅
+
 - [x] Program compiles and deploys successfully
 - [x] All client scripts work correctly
 - [x] Monitoring and operational infrastructure functional
@@ -632,6 +642,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] End-to-end testing completed
 
 ### For Testnet Deployment
+
 - [ ] All devnet criteria met
 - [ ] Security review completed
 - [ ] Performance benchmarks established
@@ -639,6 +650,7 @@ High‑level categories of outstanding or implicit risks identified during codeb
 - [ ] Third-party integration examples validated
 
 ### For Mainnet Deployment
+
 - [ ] All testnet criteria met
 - [ ] Professional security audit completed
 - [ ] Governance and upgrade authority properly managed
@@ -655,18 +667,21 @@ High‑level categories of outstanding or implicit risks identified during codeb
 ## Summary of Key Updates (August 18, 2025)
 
 ### ✅ Completed Today
+
 - [x] **Comprehensive codebase scan**: Reviewed all files to identify outstanding issues
 - [x] **Monitor alerting system**: Implemented comprehensive multi-channel alerting in `ops/monitor.sh`
 - [x] **RUNBOOK.md creation**: Created complete incident response procedures
 - [x] **Dev wallet exemption logic**: Implemented and tested in both `transfer_hook` and `execute` functions
 
 ### 🔄 New Issues Identified
+
 - [ ] **Rust unit test execution blocked**: rayon dependency requires rustc 1.80, current version is 1.78.0
 - [ ] **Package.json script error**: `npm run burner:test` references non-existent `performHealthCheck` method
 - [ ] **TypeScript dependencies**: ts-node should be added to devDependencies for consistent environment
 - [ ] **Anchor compatibility**: anchor-syn v0.30.1 prevents IDL generation and `anchor test` execution
 
 ### 🎯 Critical Next Steps
+
 1. **Secure 0.08 SOL** for program upgrade deployment
 2. **Deploy program upgrade** to enable hook registration
 3. **Fix package.json scripts** and development dependencies

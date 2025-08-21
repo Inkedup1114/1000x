@@ -13,6 +13,10 @@
     "test:property": "ts-mocha -p ./tsconfig.json -t 60000 tests/property/*_native.test.ts",
     "test:property-watch": "ts-mocha -p ./tsconfig.json -t 60000 tests/property/*_native.test.ts --watch",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:jest && npm run test:property",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "format:check": "prettier --check \"**/*.{ts,js,json,md}\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "deploy:devnet": "anchor deploy --provider.cluster devnet",
     "deploy:mainnet": "anchor deploy --provider.cluster mainnet-beta",
     "mint:create": "ts-node app/ts/create_mint.ts",
@@ -29,19 +33,22 @@
     "@coral-xyz/anchor": "^0.29.0",
     "@solana/spl-token": "^0.4.0",
     "@solana/web3.js": "^1.95.0",
-    "dotenv": "^16.4.5",
-    "bs58": "^5.0.0"
+    "bs58": "^5.0.0",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
-    "ts-mocha": "^10.0.0",
-    "chai": "^4.3.10",
-    "jest": "^29.7.0",
     "@types/jest": "^29.5.12",
-    "ts-jest": "^29.1.2",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "chai": "^4.3.10",
+    "eslint": "^8.57.1",
     "fast-check": "^3.15.1",
-    "@types/fast-check": "^2.5.0"
+    "jest": "^29.7.0",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.1.2",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
