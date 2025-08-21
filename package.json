@@ -1,0 +1,47 @@
+{
+  "name": "1000x",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "anchor build",
+    "build:program": "cargo build-sbf --manifest-path programs/1kx_hook/Cargo.toml",
+    "test": "anchor test",
+    "test:integration": "ts-mocha -p ./tsconfig.json -t 120000 tests/integration/*.ts",
+    "test:unit": "ts-mocha -p ./tsconfig.json -t 30000 tests/1kx_hook.ts",
+    "test:jest": "jest",
+    "test:jest-watch": "jest --watch",
+    "test:ts-utils": "jest app/ts/__tests__",
+    "test:property": "ts-mocha -p ./tsconfig.json -t 60000 tests/property/*_native.test.ts",
+    "test:property-watch": "ts-mocha -p ./tsconfig.json -t 60000 tests/property/*_native.test.ts --watch",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:jest && npm run test:property",
+    "deploy:devnet": "anchor deploy --provider.cluster devnet",
+    "deploy:mainnet": "anchor deploy --provider.cluster mainnet-beta",
+    "mint:create": "ts-node app/ts/create_mint.ts",
+    "mint:verify": "ts-node app/ts/verify_mint_config.ts",
+    "hook:register": "ts-node app/ts/register_hook_extra_metas.ts",
+    "hook:init": "ts-node app/ts/init_hook_config.ts",
+    "fee:configure": "ts-node app/ts/configure_fee.ts",
+    "burner:run": "ts-node app/ts/burner_bot.ts",
+    "burner:test": "node -e \"require('./app/ts/burner_bot.js').performHealthCheck?.() || console.log('Health check not available')\"",
+    "health:check": "ts-node ops/healthcheck.ts",
+    "monitor": "bash ops/monitor.sh"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.95.0",
+    "dotenv": "^16.4.5",
+    "bs58": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "ts-mocha": "^10.0.0",
+    "chai": "^4.3.10",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "ts-jest": "^29.1.2",
+    "fast-check": "^3.15.1",
+    "@types/fast-check": "^2.5.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(anchor build)",
+      "Bash(chmod:*)",
+      "Bash(./tests/integration/run-tests.sh:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(solana:*)",
+      "Bash(export:*)",
+      "Bash(export ANCHOR_WALLET=\"$HOME/.config/solana/id.json\")",
+      "Bash(ANCHOR_PROVIDER_URL=\"http://127.0.0.1:8899\" ANCHOR_WALLET=\"$HOME/.config/solana/id.json\" npm run test:integration)",
+      "Bash(anchor deploy:*)",
+      "Bash(anchor idl:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx jest:*)",
+      "Bash(npm run test:property:*)",
+      "Bash(npx tsc:*)",
+      "Bash(grep:*)",
+      "Bash(npm run test:all:*)",
+      "Bash(npm run test:jest:*)",
+      "Bash(/home/ink/1000x/scripts/quick_health.sh:*)",
+      "Bash(/home/ink/1000x/scripts/validate_runbook.sh:*)",
+      "Bash(/home/ink/1000x/scripts/governance_tools.sh check-authority:*)",
+      "Bash(/home/ink/1000x/scripts/validate_governance.sh:*)",
+      "Bash(node:*)",
+      "Bash(rm:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

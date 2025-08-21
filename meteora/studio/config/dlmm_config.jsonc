@@ -1,0 +1,34 @@
+{
+  "pool": {
+    "name": "1K-USDC",
+    "tokenA": {
+      "address": "YOUR_1K_MINT_ADDRESS",
+      "decimals": 9
+    },
+    "tokenB": {
+      "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC mainnet
+      "decimals": 6
+    },
+    "binStep": 10, // 0.1% per bin
+    "initialPrice": 0.01, // 1 1K = 0.01 USDC initial price
+    "activeBin": 0,
+    "minBinId": -2000,
+    "maxBinId": 2000
+  },
+  "liquidity": {
+    "positions": [
+      {
+        "tokenAAmount": 500,
+        "tokenBAmount": 5,
+        "strategy": "uniform",
+        "minBin": -50,
+        "maxBin": 50
+      }
+    ]
+  },
+  "fees": {
+    "baseFee": 2500, // 0.25%
+    "maxFee": 10000, // 1%
+    "protocolFee": 2000 // 20% of fees go to protocol
+  }
+}

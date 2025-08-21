@@ -1,0 +1,28 @@
+# Ignore local environment files containing secrets
+/app/ts/.env
+/ops/burner.env
+
+# Node artifacts
+/node_modules
+
+# Rust/Anchor & Solana build artifacts
+/programs/*/target
+/target
+/programs/*/test-ledger
+test-ledger/
+.anchor/
+
+# Logs
+*.log
+
+# VSCode
+/.vscode
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

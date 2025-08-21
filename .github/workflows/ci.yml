@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-program:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.78.0
+          override: true
+      - name: Install Solana
+        run: |
+          sh -c "$(curl -sSfL https://release.solana.com/v1.18.0/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+      - name: Install Anchor
+        run: cargo install --git https://github.com/coral-xyz/anchor anchor-cli --tag v0.30.0
+      - name: Build Program
+        run: anchor build
+      - name: Run Rust Tests
+        run: cargo test --manifest-path programs/1kx_hook/Cargo.toml
+
+  test-client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Run TypeScript Tests
+        run: pnpm test
+      - name: Lint
+        run: pnpm lint
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Cargo Audit
+        run: cargo audit
+      - name: Run npm audit
+        run: npm audit
